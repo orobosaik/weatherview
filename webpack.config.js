@@ -11,7 +11,7 @@ module.exports = {
 	entry: {
 		index: "./src/index.js",
 	},
-	// devtool: "source-map",
+	devtool: "source-map",
 	// devServer: {
 	// 	static: "./dist",
 	// },
@@ -41,11 +41,13 @@ module.exports = {
 		minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
 	},
 	plugins: [
-		new HtmlWebpackPlugin({ title: "WeatherView" }),
+		new HtmlWebpackPlugin({
+			title: "WeatherView",
+		}),
 		new MiniCssExtractPlugin({ filename: "[name]-[fullhash].css" }),
 	],
 	// plugins: [
-	// 	new HtmlWebpackPlugin({ template: "./src/index.html", title: "DoList" }),
+	// 	new HtmlWebpackPlugin({ template: "./src/index.html", filename: "[name]-[fullhash].html",, title: "DoList" }),
 	// 	new MiniCssExtractPlugin({ filename: "[name]-[hash].css" }),
 	// ],
 	performance: {
