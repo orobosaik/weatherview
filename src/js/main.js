@@ -8,17 +8,14 @@ async function searchSuggestions(searchItem) {
 		const searchJson = await searchData.json();
 		console.log(searchJson);
 		return searchJson;
-		// for (const i of searchJson) {
-		// console.log(i.name);
-		// }
+
 	} catch (error) {
-		return "No Internet Coooooooooo";
-		// console.log("error:", error);
+		return "No Internet";
 
 	}
 }
 
-async function currentWeather(searchItem) {
+async function getCurrentWeather(searchItem) {
 	try {
 		const searchData = await fetch(
 			`https://api.weatherapi.com/v1/forecast.json?key=da317d0d5f7b41e1b8a191925231104&q=${searchItem}`,
@@ -64,15 +61,9 @@ async function currentWeather(searchItem) {
 	}
 }
 
-function getCurrentWeather(place) {
-	currentWeather(place).then((result) => {
-		return result
-	})
-}
 function getSearchSuggestions(place) {
 	searchSuggestions(place).then((result) => {
 		return result
 	})
 }
-
 export {getCurrentWeather, getSearchSuggestions}
